@@ -1,0 +1,42 @@
+﻿@model SitePessoalMasMelhor.Models.ExpProfissional
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ExpProfissional</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Empresa)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Empresa)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Funcao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Detalhes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Detalhes)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ExpProfissionalId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
