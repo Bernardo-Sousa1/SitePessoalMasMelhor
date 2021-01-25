@@ -3,14 +3,16 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using SitePessoalMasMelhor.Models;
 
 namespace SitePessoalMasMelhor.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class SitePessoalBdContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public SitePessoalBdContext(DbContextOptions<SitePessoalBdContext> options)
             : base(options)
         {
         }
+        public DbSet<ExpProfissional>ExpProfissional { get; set; }
     }
 }
