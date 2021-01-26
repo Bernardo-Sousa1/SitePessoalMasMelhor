@@ -10,7 +10,7 @@ using SitePessoalMasMelhor.Data;
 namespace SitePessoalMasMelhor.Migrations
 {
     [DbContext(typeof(SitePessoalBdContext))]
-    [Migration("20210125151437_Initial")]
+    [Migration("20210126112610_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
