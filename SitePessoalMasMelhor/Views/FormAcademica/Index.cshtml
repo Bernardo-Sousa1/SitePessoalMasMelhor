@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SitePessoalMasMelhor.Models.FormAcademica>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Instituição)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duração)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDeConclusão)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instituição)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duração)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDeConclusão)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FormAcademicaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FormAcademicaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FormAcademicaId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

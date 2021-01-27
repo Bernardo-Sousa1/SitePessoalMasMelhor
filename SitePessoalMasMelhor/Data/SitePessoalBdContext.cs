@@ -14,5 +14,6 @@ namespace SitePessoalMasMelhor.Data
         {
         }
         public DbSet<ExpProfissional>ExpProfissional { get; set; }
+        public DbSet<FormAcademica> FormAcademica { get; set; }
     }
 }
