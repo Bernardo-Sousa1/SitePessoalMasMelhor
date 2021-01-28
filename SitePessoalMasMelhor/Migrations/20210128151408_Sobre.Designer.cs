@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SitePessoalMasMelhor.Data;
 
 namespace SitePessoalMasMelhor.Migrations
 {
     [DbContext(typeof(SitePessoalBdContext))]
-    partial class SitePessoalBdContextModelSnapshot : ModelSnapshot
+    [Migration("20210128151408_Sobre")]
+    partial class Sobre
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,21 +67,6 @@ namespace SitePessoalMasMelhor.Migrations
                     b.HasKey("FormAcademicaId");
 
                     b.ToTable("FormAcademica");
-                });
-
-            modelBuilder.Entity("SitePessoalMasMelhor.Models.SobreMim", b =>
-                {
-                    b.Property<int>("SobreMimId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Sobre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("SobreMimId");
-
-                    b.ToTable("SobreMim");
                 });
 #pragma warning restore 612, 618
         }

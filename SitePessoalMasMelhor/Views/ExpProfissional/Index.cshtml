@@ -3,9 +3,20 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h2>Index</h2>
-
+<section id="video" class="content-section">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-heading">
+                <h1>Experiência Profissional</h1>
+                <p>Infelizmente ainda não tenho experiência profissional, por favor veja abaixo o meu trajeto académico.</p>
+            </div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <div class="accent-button button">
+                <a asp-area="" asp-controller="FormAcademica" asp-action="Index">Formação académica</a>
+            </div>
+        </div>
+    </div>
+</section>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -28,26 +39,27 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Empresa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Funcao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Detalhes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ExpProfissionalId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ExpProfissionalId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ExpProfissionalId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Empresa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Funcao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Detalhes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ExpProfissionalId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ExpProfissionalId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ExpProfissionalId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
