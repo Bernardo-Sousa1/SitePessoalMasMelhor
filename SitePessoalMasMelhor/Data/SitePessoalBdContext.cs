@@ -16,5 +16,6 @@ namespace SitePessoalMasMelhor.Data
         public DbSet<ExpProfissional>ExpProfissional { get; set; }
         public DbSet<FormAcademica> FormAcademica { get; set; }
         public DbSet<SitePessoalMasMelhor.Models.SobreMim> SobreMim { get; set; }
+        public DbSet<SitePessoalMasMelhor.Models.Contacto> Contacto { get; set; }
     }
 }
