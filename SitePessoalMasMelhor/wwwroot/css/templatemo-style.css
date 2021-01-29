@@ -382,21 +382,8 @@ header {
   background-image: url(../img/fundo.jpg);
 }
 
-.Modern-Slider .item-2 .image {
-  background-image: url(../img/slide_2.jpg);
-}
-
-.Modern-Slider .item-3 .image {
-  background-image: url(../img/slide_3.jpg);
-}
 
 /*.Modern-Slider .PrevArrow:before{content:'\f104';}*/
-
-.Modern-Slider .item .image {
-  animation: zoomin 12s ease-in-out infinite alternate;
-  -webkit-animation: zoomin 12s ease-in-out infinite alternate;
-}
-
 @keyframes zoomin {
     0% {-webkit-transform: scale(1);}
     100% {-webkit-transform: scale(1.2);}
