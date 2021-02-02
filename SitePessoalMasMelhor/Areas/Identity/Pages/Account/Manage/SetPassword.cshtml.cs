@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace SitePessoalMasMelhor.Areas.Identity.Pages.Account.Manage
+namespace Site_v3_dinamico.Areas.Identity.Pages.Account.Manage
 {
     public class SetPasswordModel : PageModel
     {

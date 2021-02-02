@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-namespace SitePessoalMasMelhor.Areas.Identity.Pages.Account.Manage
+namespace Site_v3_dinamico.Areas.Identity.Pages.Account.Manage
 {
     public class ChangePasswordModel : PageModel
     {

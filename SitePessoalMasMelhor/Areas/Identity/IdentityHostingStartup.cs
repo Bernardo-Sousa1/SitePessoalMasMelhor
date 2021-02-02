@@ -7,8 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SitePessoalMasMelhor.Data;
 
-[assembly: HostingStartup(typeof(SitePessoalMasMelhor.Areas.Identity.IdentityHostingStartup))]
-namespace SitePessoalMasMelhor.Areas.Identity
+[assembly: HostingStartup(typeof(Site_v3_dinamico.Areas.Identity.IdentityHostingStartup))]
+namespace Site_v3_dinamico.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {

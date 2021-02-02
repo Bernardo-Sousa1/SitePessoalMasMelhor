@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace SitePessoalMasMelhor.Areas.Identity.Pages.Account.Manage
+namespace Site_v3_dinamico.Areas.Identity.Pages.Account.Manage
 {
     public static class ManageNavPages
     {

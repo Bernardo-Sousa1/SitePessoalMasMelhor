@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace SitePessoalMasMelhor.Areas.Identity.Pages.Account.Manage
+namespace Site_v3_dinamico.Areas.Identity.Pages.Account.Manage
 {
     public class ExternalLoginsModel : PageModel
     {
@@ -36,7 +36,7 @@ namespace SitePessoalMasMelhor.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{user.Id}'.");
+                return NotFound($"Unable to load user with ID 'user.Id'.");
             }
 
             CurrentLogins = await _userManager.GetLoginsAsync(user);
@@ -52,14 +52,14 @@ namespace SitePessoalMasMelhor.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{user.Id}'.");
+                return NotFound($"Unable to load user with ID 'user.Id'.");
             }
 
             var result = await _userManager.RemoveLoginAsync(user, loginProvider, providerKey);
             if (!result.Succeeded)
             {
                 StatusMessage = "The external login was not removed.";
-                return RedirectToPage();onException($"Unexpected error occurred removing external login for user with ID '{userId}'.");
+                return RedirectToPage();
             }
 
             await _signInManager.RefreshSignInAsync(user);
@@ -71,9 +71,10 @@ namespace SitePessoalMasMelhor.Areas.Identity.Pages.Account.Manage
         {
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+
             // Request a redirect to the external login provider to link a login for the current user
             var redirectUrl = Url.Page("./ExternalLogins", pageHandler: "LinkLoginCallback");
-            var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl,  _userManager.GetUserId(User));
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl, _userManager.GetUserId(User));
             return new ChallengeResult(provider, properties);
         }
 
@@ -82,7 +83,7 @@ namespace SitePessoalMasMelhor.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{user.Id}'.");
+                return NotFound($"Unable to load user with ID 'user.Id'.");
             }
 
             var info = await _signInManager.GetExternalLoginInfoAsync(user.Id);
