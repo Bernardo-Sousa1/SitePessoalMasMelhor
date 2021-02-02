@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SitePessoalMasMelhor;
 
 
 namespace SitePessoalMasMelhor
@@ -31,14 +32,35 @@ namespace SitePessoalMasMelhor
             services.AddDbContext<SitePessoalBdContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<SitePessoalBdContext>();
+
+
+            services.AddIdentity<IdentityUser, IdentityRole>(options => {
+                // Sign in
+                options.SignIn.RequireConfirmedAccount = false;
+
+                // Password
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 6;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+
+                // Lockout
+                options.Lockout.AllowedForNewUsers = true;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+            })
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultUI();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, SitePessoalBdContext bd,
+            UserManager<IdentityUser> gestorUtilizadores)
         {
             if (env.IsDevelopment())
             {
@@ -66,6 +88,9 @@ namespace SitePessoalMasMelhor
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+            SeedData.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
+            
+            
         }
     }
 }
