@@ -9,23 +9,23 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div style="color: white" class="section-heading">
+                <div style="color: black" class="section-heading">
                     <h2>Realizar Login</h2>
                     <div class="line-dec"></div>
                     Faça login com a sua conta pessoal
                 </div>
                 <section>
-                    <form style="color: white;" id="account" method="post">
+                    <form style="color: black;" id="account" method="post">
 
                         <hr />
                         <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="form-group">
-                            <label asp-for="Input.Email"></label>
+                            <label asp-for="Input.Email">Email</label>
                             <input asp-for="Input.Email" class="form-control" />
                             <span asp-validation-for="Input.Email" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Input.Password"></label>
+                            <label asp-for="Input.Password">Password</label>
                             <input asp-for="Input.Password" class="form-control" />
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
                         </div>
@@ -33,7 +33,7 @@
                             <div class="checkbox">
                                 <label asp-for="Input.RememberMe">
                                     <input asp-for="Input.RememberMe" />
-                                    Lembrar-me?
+                                    Lembrar esta conta?
                                 </label>
                             </div>
                         </div>
@@ -44,8 +44,8 @@
                             <p>
                                     <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
                                 </p>
-                            <p>
-                                <a asp-area="" asp-controller="Clientes" asp-action="Registo">Ainda não tem conta? Faça novo registo de cliente em 2 minutos.</a>
+                            <
+                                <a asp-area="Identity" asp-page="/Account/Register"> Ainda não tem conta? Faça novo registo de cliente em 2 minutos.</a>
                             </p>
                         </div>
                     </form>

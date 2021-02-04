@@ -5,108 +5,54 @@
 }
 <section id="blog" class="content-section">
     <div class="section-heading">
-        <h1>Trajeto académico</h1>
+        <h1>Formação académica</h1>
     </div>
-    <div class="section-content">
-        <div class="tabs-content">
-            <div class="wrapper">
-                <ul class="tabs clearfix" data-tabgroup="first-tab-group">
-                    <li><a href="#tab1" class="active">2020</a></li>
-                    <li><a href="#tab2">2017</a></li>
-                    <li><a href="#tab3">2011</a></li>
-                </ul>
-                <section id="first-tab-group" class="tabgroup">
-                    <div id="tab1">
-                        <ul>
-                            <li>
-                                <div class="item">
-                                    <img src="~/img/upskill.png" alt="" style="width:300px; height:200px" />
-                                    <div class="text-content">
-                                        <h4>Projeto Upskill</h4>
-                                        <span>Outubro de 2020</span>
-                                        <p>A APDC, o IEFP e o CCISP, fizeram uma colaboração do qual originou o projeto upskill com o objetivo de fornecer formação a vários formandos na área da informática, neste caso em .NET </p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="tab2">
-                        <ul>
-                            <li>
-                                <div class="item">
-                                    <img src="~/img/isec.jpg" alt="" style="width:300px; height:200px" />
-                                    <div class="text-content">
-                                        <h4>Instituto Superior de Engenharia de Coimbra</h4>
-                                        <span>Setembro de 2017</span>
-                                        <p>Durante 3 anos estive em Coimbra numa licenciatura em Engenharia Eletrotécnica, curso que decidi parar para poder participar nesta formação. Nele tive algumas experiência com programação.</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="tab3">
-                        <ul>
-                            <li>
-                                <div class="item">
-                                    <img src="~/img/escola.png" alt="" style="width:300px; height:200px" />
-                                    <div class="text-content">
-                                        <h4>Escola Secundária Afonso de Albuquerque</h4>
-                                        <span>Setembro de 2011</span>
-                                        <p>Escola secundária que frequentei por 6 anos, acabando por fazer os últimos 3 anos na área das Ciências e Tecnologia, onde comecei a aprender um pouco de programação </p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
 
-                </section>
-            </div>
-        </div>
-    </div>
+
+    <p>
+        <a asp-action="Create">Adicionar nova formação académica</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Instituição)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Duração)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataDeConclusão)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Instituição)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Duração)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataDeConclusão)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.FormAcademicaId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.FormAcademicaId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.FormAcademicaId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </section>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Instituição)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Duração)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataDeConclusão)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Instituição)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duração)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataDeConclusão)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FormAcademicaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FormAcademicaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FormAcademicaId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>

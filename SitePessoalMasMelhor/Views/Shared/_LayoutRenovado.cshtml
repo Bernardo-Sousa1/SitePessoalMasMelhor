@@ -27,8 +27,8 @@
 
     <script src="~/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
-
 <body>
+
     <header class="nav-down responsive-nav hidden-lg hidden-md">
         <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
             <span class="sr-only">Toggle navigation</span>
@@ -45,9 +45,9 @@
                     <li><a asp-area="" asp-controller="ExpProfissional" asp-action="Index">Experiência Profissional</a></li>
                     <li><a asp-area="" asp-controller="FormAcademica" asp-action="Index">Formação Académica</a></li>
                     <li><a asp-area="" asp-controller="Contacto" asp-action="Index">Contactos</a></li>
+                    <partial name="_LoginPartial" />
                 </ul>
             </nav>
-            <partial name="_LoginPartial" />
         </div>
     </header>
 
@@ -92,6 +92,7 @@
                         Contactos
                     </a>
                 </li>
+                    <partial name="_LoginPartial" />
             </ul>
         </nav>
         <ul class="social-icons">
@@ -100,23 +101,19 @@
             <li><a href="https://pt.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
         </ul>
     </div>
+    @*<div class="slider">
+            <div class="Modern-Slider content-section" id="top">
+                <div class="item item-1">
+                    <div class="img-fill">
+                        <div class="image"></div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
 
     <div>
         @RenderBody()
     </div>
-
-    <div class="slider">
-        <div class="Modern-Slider content-section" id="top">
-            <!-- Item -->
-            <div class="item item-1">
-                <div class="img-fill">
-                    <div class="image"></div>
-                </div>
-            </div>
-            <!-- // Item -->
-        </div>
-    </div>
-
 
 
 

@@ -65,12 +65,12 @@ namespace SitePessoalMasMelhor.Data
 
             return utilizador;
         }
-        internal static void PreencheDados(SitePessoalBdContext bd)
+        internal static void PreencheDadosFA(SitePessoalBdContext bd)
         {
-            DadosEProfissional(bd);
+            DadosFAcademica(bd);
         }
 
-        private static void DadosEProfissional(SitePessoalBdContext bd)
+        private static void DadosFAcademica(SitePessoalBdContext bd)
         {
             if (bd.FormAcademica.Any()) return;
 
@@ -100,5 +100,8 @@ namespace SitePessoalMasMelhor.Data
 
             bd.SaveChanges();
         }
+
+
+        
     }
 }

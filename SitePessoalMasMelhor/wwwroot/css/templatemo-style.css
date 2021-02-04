@@ -7,7 +7,9 @@ https://templatemo.com/tm-518-sentra
 */
 
 body {
-  font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    background-image: url(../img/fundo.jpg);
+    background-color: cornflowerblue;
 }
 
 p {
@@ -24,7 +26,7 @@ p {
 .content-section {
   padding-top: 80px;
   position: relative;
-  width: 100%;
+  width: 77.5%;
   display: inline-block;
   height: auto;
   left: 50%;
@@ -316,11 +318,11 @@ header {
 
 .slider .content-section {
   padding-top: 0px;
-  min-width: 100%;
+  min-width: 77.5%;
   min-height: 100vh;
-  width: 100%;
+  width: 77.5%;
   height: 100vh;
-  text-align: center;
+  text-align: right;
 }
 
 .slider p a {
@@ -649,6 +651,8 @@ header {
   padding-left: 60px;
   padding-right: 60px;
   padding-bottom: 80px;
+  width:77.5%;
+  right:0;
 }
 
 #blog .tabs {
