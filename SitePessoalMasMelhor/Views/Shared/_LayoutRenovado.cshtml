@@ -28,7 +28,6 @@
     <script src="~/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body>
-
     <header class="nav-down responsive-nav hidden-lg hidden-md">
         <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
             <span class="sr-only">Toggle navigation</span>
@@ -40,12 +39,12 @@
         <div id="main-nav" class="collapse navbar-collapse">
             <nav>
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Shared" asp-action="_LayoutRenovado">Página Inicial</a></li>
-                    <li><a asp-area="" asp-controller="SobreMim" asp-action="Index">Sobre mim</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Página Inicial</a></li>
+                    @*<li><a asp-area="" asp-controller="SobreMim" asp-action="Index">Sobre mim</a></li>*@
                     <li><a asp-area="" asp-controller="ExpProfissional" asp-action="Index">Experiência Profissional</a></li>
                     <li><a asp-area="" asp-controller="FormAcademica" asp-action="Index">Formação Académica</a></li>
-                    <li><a asp-area="" asp-controller="Contacto" asp-action="Index">Contactos</a></li>
-                    <partial name="_LoginPartial" />
+                    @*<li><a asp-area="" asp-controller="Contacto" asp-action="Index">Contactos</a></li>*@
+                    <li><partial name="_LoginPartial" /></li>
                 </ul>
             </nav>
         </div>
@@ -64,13 +63,13 @@
                         Página Inicial
                     </a>
                 </li>
-                <li>
+                @*<li>
                     <a asp-area="" asp-controller="SobreMim" asp-action="Index">
                         <span class="rect"></span>
                         <span class="circle"></span>
                         Sobre mim
                     </a>
-                </li>
+                </li>*@
                 <li>
                     <a asp-area="" asp-controller="ExpProfissional" asp-action="Index">
                         <span class="rect"></span>
@@ -85,14 +84,14 @@
                         Formação Académica
                     </a>
                 </li>
-                <li>
+                @*<li>
                     <a asp-area="" asp-controller="Contacto" asp-action="Index">
                         <span class="rect"></span>
                         <span class="circle"></span>
                         Contactos
                     </a>
-                </li>
-                    <partial name="_LoginPartial" />
+                </li>*@
+                <partial name="_LoginPartial" />
             </ul>
         </nav>
         <ul class="social-icons">
@@ -100,8 +99,7 @@
             <li><a href="https://twitter.com/home?lang=pt"><i class="fa fa-twitter"></i></a></li>
             <li><a href="https://pt.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
         </ul>
-    </div>
-    @*<div class="slider">
+        @*<div class="slider">
             <div class="Modern-Slider content-section" id="top">
                 <div class="item item-1">
                     <div class="img-fill">
@@ -110,20 +108,20 @@
                 </div>
             </div>
         </div>*@
-
+    </div>
     <div>
         @RenderBody()
     </div>
 
+    @*<div class="page-content">
+        <section class="footer">
+            <p>
+                Copyright &copy; 2019 Company Name
 
-
-    <section class="footer">
-        <p>
-            Copyright &copy; 2019 Company Name
-
-            . Design: TemplateMo
-        </p>
-    </section>
+                . Design: TemplateMo
+            </p>
+        </section>
+    </div>*@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="~/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>

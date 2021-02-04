@@ -19,8 +19,9 @@ p {
 }
 
 .page-content {
-  width: 77.5%;
-  float: right;
+    width: 77.5%;
+    float: right;
+    background-image: url(../img/fundo.jpg);
 }
 
 .content-section {
@@ -897,6 +898,7 @@ header {
   }
 
   .page-content {
+     background-image:url(../img/fundo.jpg);
     width: 100%;
   }
 

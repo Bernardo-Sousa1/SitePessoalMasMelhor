@@ -5,13 +5,13 @@
 <div class="sidebar-navigation hidde-sm hidden-xs">
     @if (SignInManager.IsSignedIn(User))
     {
-        <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Bem-vindo @User.Identity.Name!</a>
+        <li>
+            <a  asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Bem-vindo @User.Identity.Name!</a>
         </li>
-        <li class="nav-item mx-0 mx-lg-1">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="nav-link py-3 px-0 px-lg-3 rounded">Logout</button>
-            </form>
+        <li>
+            <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                Logout
+            </a>
         </li>
     }
     else

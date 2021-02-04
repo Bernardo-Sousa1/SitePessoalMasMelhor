@@ -85,7 +85,7 @@ namespace SitePessoalMasMelhor.Data
                 new Models.FormAcademica
                 {
                     Instituição = "Escola Secundária Afonso de Albuquerque",
-                    Nome = "Ramo científico",
+                    Nome = "Ciências e Tecnologia",
                     Duração = "6 anos",
                     DataDeConclusão = "2017"
                 },

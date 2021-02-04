@@ -3,56 +3,63 @@
 @{
     ViewData["Title"] = "Index";
 }
-<section id="blog" class="content-section">
-    <div class="section-heading">
-        <h1>Formação académica</h1>
-    </div>
+<div class="page-content">
+    <section id="blog" class="content-section">
+        <div class="section-heading">
+            <h1>Formação académica</h1>
+        </div>
 
-
-    <p>
-        <a asp-action="Create">Adicionar nova formação académica</a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Instituição)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nome)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Duração)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DataDeConclusão)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+        @if (User.IsInRole("Administrador"))
+        {
+            <p style="color:beige">
+                <a asp-action="Create">Adicionar nova formação académica</a>
+            </p>
+        }
+        <table class="table" style="background-color:beige">
+            <thead style="text-align:center">
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Instituição)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Duração)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DataDeConclusão)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.FormAcademicaId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.FormAcademicaId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.FormAcademicaId">Delete</a>
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Instituição)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Duração)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataDeConclusão)
+                    </th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-</section>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Instituição)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Duração)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataDeConclusão)
+                        </td>
+                        <td>
+                            @if (User.IsInRole("Administrador"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.FormAcademicaId">Edit</a>
+                                <a asp-action="Details" asp-route-id="@item.FormAcademicaId"> Details </a>
+                                <a asp-action="Delete" asp-route-id="@item.FormAcademicaId"> Delete </a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</div>

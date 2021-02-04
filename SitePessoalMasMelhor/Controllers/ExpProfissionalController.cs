@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -44,6 +45,7 @@ namespace SitePessoalMasMelhor.Controllers
         }
 
         // GET: ExpProfissional/Create
+        [Authorize(Roles = "Administrador")]
         public IActionResult Create()
         {
             return View();
@@ -54,6 +56,7 @@ namespace SitePessoalMasMelhor.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Create([Bind("ExpProfissionalId,Empresa,Funcao,Detalhes,Data")] ExpProfissional expProfissional)
         {
             if (ModelState.IsValid)
@@ -66,6 +69,7 @@ namespace SitePessoalMasMelhor.Controllers
         }
 
         // GET: ExpProfissional/Edit/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,6 +88,7 @@ namespace SitePessoalMasMelhor.Controllers
         // POST: ExpProfissional/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ExpProfissionalId,Empresa,Funcao,Detalhes,Data")] ExpProfissional expProfissional)
@@ -117,6 +122,7 @@ namespace SitePessoalMasMelhor.Controllers
         }
 
         // GET: ExpProfissional/Delete/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
