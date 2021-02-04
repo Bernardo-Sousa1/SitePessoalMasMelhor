@@ -4,66 +4,61 @@
     ViewData["Title"] = "Index";
 }
 <div class="page-content">
-    <section id="video" class="content-section">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-heading">
-                    <h1>Experiência Profissional</h1>
-                    <p>Infelizmente ainda não tenho experiência profissional, por favor veja abaixo o meu trajeto académico.</p>
-                </div>
-                <div class="accent-button button">
-                    <a asp-area="" asp-controller="FormAcademica" asp-action="Index">Formação académica</a>
-                </div>
-            </div>
+    <section id="blog" class="content-section">
+        <div class="section-heading">
+            <h1>Experiência Profissional</h1>
         </div>
-    </section>
-    @if (User.IsInRole("Administrador"))
-    { 
-        <p style="color:beige">
-            <a asp-action="Create">Criar novo registo</a>
-        </p>
-    }
-    <table class="table" style="background-color:beige" >
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Empresa)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Funcao)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Detalhes)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Data)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+        @if (User.IsInRole("Administrador"))
+        {
+            <p style="color:beige">
+                <a asp-action="Create">Criar novo registo</a>
+            </p>
+        }
+        <table class="table" style="background-color:beige">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Empresa)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Funcao)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Detalhes)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Data)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.ExpProfissionalId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.ExpProfissionalId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.ExpProfissionalId">Delete</a>
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Empresa)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Funcao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Detalhes)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Data)
+                    </th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Empresa)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Funcao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Detalhes)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Data)
+                        </td>
+                        @if (User.IsInRole("Administrador"))
+                        {
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.ExpProfissionalId">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.ExpProfissionalId">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.ExpProfissionalId">Delete</a>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
 </div>

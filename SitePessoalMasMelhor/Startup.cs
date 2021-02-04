@@ -99,7 +99,9 @@ namespace SitePessoalMasMelhor
             if (env.IsDevelopment())
             {
                 SeedData.PreencheDadosFA(bd);
+                SeedData.PreencheDadosEP(bd);
             }
+
         }
     }
 }

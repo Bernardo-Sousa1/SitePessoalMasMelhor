@@ -91,7 +91,7 @@ namespace SitePessoalMasMelhor.Data
                 },
                 new Models.FormAcademica
                 {
-                    Instituição = "APDC, o IEFP e o CCISP",
+                    Instituição = "APDC, IEFP e CCISP",
                     Nome = "Formação Upskill",
                     Duração = "6 meses de formação + 3 meses de estágio",
                     DataDeConclusão = "Por concluir"
@@ -101,7 +101,28 @@ namespace SitePessoalMasMelhor.Data
             bd.SaveChanges();
         }
 
+        internal static void PreencheDadosEP(SitePessoalBdContext bd)
+        {
+            DadosEProf(bd);
+        }
 
-        
+        private static void DadosEProf(SitePessoalBdContext bd)
+        {
+            if (bd.ExpProfissional.Any()) return;
+
+            bd.ExpProfissional.AddRange(new Models.ExpProfissional[] {
+                new Models.ExpProfissional
+                {
+                    Empresa="APDC, IEFP e CCISP",
+                    Funcao="Estudante",
+                    Detalhes="Formação em .NET",
+                    Data=new DateTime(2020,8,6),
+                }
+            }) ;
+
+            bd.SaveChanges();
+        }
+
+
     }
 }
